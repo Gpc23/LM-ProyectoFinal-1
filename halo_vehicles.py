@@ -9,11 +9,11 @@ params = urllib.parse.urlencode({
 })
 
 try:
-    conn = http.client.HTTPSConnection('www.haloapi.com')
-    conn.request("GET", "/metadata/h5/metadata/vehicles?%s" % params, "{body}", headers)
-    response = conn.getresponse()
+    curl = http.client.HTTPSConnection('www.haloapi.com')
+    curl.request("GET", "/metadata/h5/metadata/vehicles?%s" % params, "{body}", headers)
+    response = curl.getresponse()
     data = response.read()
     print(data)
-    conn.close()
+    curl.close()
 except Exception as e:
     print("[Errno {0}] {1}".format(e.errno, e.strerror))
