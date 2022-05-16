@@ -1,16 +1,16 @@
 import http.client, urllib.request, urllib.parse, urllib.error, base64
 
-headers = {
+cabezera = {
     'Accept-Language': 'en',
     'Ocp-Apim-Subscription-Key': 'key',
 }
 
-params = urllib.parse.urlencode({
+parametros = urllib.parse.urlencode({
 })
 
 try:
     curl = http.client.HTTPSConnection('www.haloapi.com')
-    curl.request("GET", "/metadata/h5/metadata/vehicles?%s" % params, "{body}", headers)
+    curl.request("GET", "/metadata/h5/metadata/vehicles?%s" % parametros, "{body}", cabezera)
     response = curl.getresponse()
     data = response.read()
     print(data)
